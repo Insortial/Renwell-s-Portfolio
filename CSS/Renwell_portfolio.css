@@ -1,9 +1,11 @@
+/*TypeScale http://type-scale.com/?size=20&scale=1.333&text=A%20Visual%20Type%20Scale&webfont=Libre+Baskerville&font-family=%27Libre%20Baskerville%27,%20serif&font-weight=400&font-family-headers=&font-weight-headers=inherit&background-color=white&font-color=#333*/
+
 body {
     background-color: #bdd6c4;
-    font-family: 'Open Sans';
+    font-family: 'Source Sans Pro';
     display: grid;
     grid-template-columns: 20px 2fr 2fr 2fr 2fr 2fr 2fr 20px;
-    grid-template-rows: 100px 100px;
+    grid-template-rows: 100px 100px 3fr 2fr;
     grid-template-areas: 
         '. . . header header header header .'
         '. Name Name Name Name Name . .'
@@ -29,7 +31,7 @@ header {
 #title {
     grid-area: Name;
     color: white;
-    font-family: 'Lato';
+    font-family: 'Lato', 'Source Sans Pro', Arial, Helvetica, sans-serif;
     font-weight: 100;
     font-size: 3.157em;
 }
@@ -46,10 +48,14 @@ header {
     display: flex;
     flex-direction: row;
     font-size: 1.333rem;
-    color: white;
     padding: 0;
     margin-right: auto;
     margin-left: .5em;
+}
+
+#navigation a {
+    text-decoration: none;
+    color: white;
 }
 
 #navigation li {
@@ -62,4 +68,47 @@ header {
     height: 700px;
     background-color: white;
     border-radius: 12px;
+}
+
+#intro {
+    display: grid;
+    grid-template-columns: 5px 1fr 1fr 1fr 5px;
+    grid-template-rows:1fr 60px 2fr;
+    padding: 1em;
+    grid-template-areas: 
+        '. . . . .'
+        '. intro_heading . . .'
+        '. intro_paragraph intro_paragraph intro_paragraph .'
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Lato', 'Source Sans Pro', Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+.skills span {
+    background-color: #f6f6f6;
+    height: 175px;
+    width: 175px;
+    border-radius: 100%;
+    align-self: center;
+}
+
+.skills span:nth
+#intro h2 {
+    grid-area: intro_heading;
+    font-family: 'Source Sans Pro', 'Lato', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 2.369rem;
+    margin: 10px 0 20px 24px;
+}
+
+#intro p {
+    grid-area: intro_paragraph;
+    margin: 0 1.2em;
+    line-height: 1.3em;
 }
