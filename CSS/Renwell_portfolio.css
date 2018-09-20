@@ -5,11 +5,13 @@ body {
     font-family: 'Source Sans Pro';
     display: grid;
     grid-template-columns: 20px 2fr 2fr 2fr 2fr 2fr 2fr 20px;
-    grid-template-rows: 100px 100px 3fr 2fr;
+    grid-template-rows: 100px 100px 3fr 100px 200px;
     grid-template-areas: 
         '. . . header header header header .'
         '. Name Name Name Name Name . .'
-        '. body body body body body body .'
+        'body body body body body body body body'
+        '. . . . . . . .'
+        'footer footer footer footer footer footer footer footer'
     ;
 }
 
@@ -33,7 +35,8 @@ header {
     color: white;
     font-family: 'Lato', 'Source Sans Pro', Arial, Helvetica, sans-serif;
     font-weight: 100;
-    font-size: 3.157em;
+    font-size: 2.369em;
+    margin-top: 1em;
 }
 
 #navigation {
@@ -65,20 +68,27 @@ header {
 #page_body {
     grid-area: body;
     display: grid;
-    height: 700px;
     background-color: white;
     border-radius: 12px;
+    box-sizing: border-box;
 }
 
 #intro {
     display: grid;
-    grid-template-columns: 5px 1fr 1fr 1fr 5px;
-    grid-template-rows:1fr 60px 2fr;
-    padding: 1em;
+    grid-template-columns: 10px 1fr 10px;
+    grid-template-rows:1fr 1fr 1fr 60px 1fr;
+    padding-top: 2em;
     grid-template-areas: 
-        '. . . . .'
-        '. intro_heading . . .'
-        '. intro_paragraph intro_paragraph intro_paragraph .'
+        '. space1 .'
+        '. space2 .'
+        '. space3 .'
+        '. intro_heading . '
+        '. intro_paragraph .'
+}
+
+.skills h3 {
+    font-weight: 400;
+    font-size: 1.777rem;
 }
 
 .skills {
@@ -92,23 +102,180 @@ header {
 
 .skills span {
     background-color: #f6f6f6;
-    height: 175px;
-    width: 175px;
+    height: 200px;
+    width: 200px;
     border-radius: 100%;
     align-self: center;
 }
 
-.skills span:nth
+.skills:nth-child(1) {
+    grid-area: space1;
+}
+
+.skills:nth-child(2) {
+    grid-area: space2;
+}
+
+.skills:nth-child(3) {
+    grid-area: space3;
+}
+
 #intro h2 {
     grid-area: intro_heading;
     font-family: 'Source Sans Pro', 'Lato', Arial, Helvetica, sans-serif;
     font-weight: 300;
-    font-size: 2.369rem;
-    margin: 10px 0 20px 24px;
+    font-size: 3rem;
+    margin: 20px 0 0 0;
 }
 
 #intro p {
     grid-area: intro_paragraph;
-    margin: 0 1.2em;
-    line-height: 1.3em;
+    line-height: 1.5em;
+    margin-top: 30px;
+}
+
+#colors {
+    background-color: #eff5fc;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+.color {
+    height: 300px;
+    width: 100%;
+    background-color: #605f5f;
+    align-self: center;
+    display: flex;
+}
+
+.color span {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    align-self: flex-start;
+    background: white;
+    margin: auto 1em;
+}
+
+#blue {
+    background-color: #527593;
+}
+
+#orange {
+    background-color: #eba474;
+}
+
+#yellow {
+    background-color: #fbe5a3;
+}
+
+#red {
+    background-color: #ed6456;
+}
+
+#slide {
+    height: 500px;
+    width: 100%;
+    background-color: #8fae88;
+    margin-top: 2em;
+}
+
+#projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 4fr;
+    margin-top: 2em;
+    height: 600px;
+    grid-template-areas: 
+        'header'
+        'container'
+    ;
+}
+
+#heading {
+    grid-area: header;
+    background: #605f5f;
+    width: 100%;
+}
+
+#container {
+    grid-area: container;
+    background: #f5f4f4;
+    width: 100%;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #eae7e7;
+    width: 100%;
+}
+/*Media Queries*/
+@media (min-width: 720px) {
+    body {
+        grid-template-areas: 
+        '. . . header header header header .'
+        '. Name Name Name Name Name . .'
+        '. body body body body body body .'
+        '. . . . . . . .'
+        'footer footer footer footer footer footer footer footer'
+    ;
+    }
+    #intro {
+        grid-template-columns: 30px 1fr 1fr 1fr 30px;
+        grid-template-rows:1fr 60px 1fr;
+        grid-template-areas: 
+            '. space1 space2 space3 .'
+            '. intro_heading intro_heading . .'
+            '. intro_paragraph intro_paragraph intro_paragraph .'
+    }
+
+    #title {
+        grid-area: Name;
+        color: white;
+        font-family: 'Lato', 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        font-weight: 100;
+        font-size: 3.157em;
+        margin-top: .5em;
+    }
+
+    .skills span {
+        height: 190px;
+        width: 190px;
+    }
+
+    #intro h2{
+        text-align: initial;
+    }
+
+    #intro p {
+        grid-area: intro_paragraph;
+        line-height: 1.5em;
+        margin-top: 30px;
+        text-align: initial;
+        margin-right: 2em;
+        font-size: 1.333rem;
+    }
+
+    .color {
+        height: 200px;
+        width: 97%;
+        margin: .7em 0;
+    }
+
+    .color span {
+        height: 150px;
+        width: 150px;
+        margin: 1em;
+    }
+
+    #projects {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 1fr;
+        margin-top: 2em;
+        height: 600px;
+        grid-template-areas: 'header container';
+    }
 }
